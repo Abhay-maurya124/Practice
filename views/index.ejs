@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>File Manager</title>
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center py-8">
+    <div class="w-full max-w-3xl p-6">
+      <!-- Form -->
+      <form
+        action="/create"
+        method="post"
+        class="bg-gray-800 p-6 rounded-2xl shadow-lg space-y-5"
+      >
+        <h1 class="text-2xl font-bold text-center text-blue-400">
+          Create a New File
+        </h1>
+        <input
+          type="text"
+          name="title"
+          placeholder="Enter title"
+          required
+          class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 
+                 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+        />
+        <textarea
+          name="detail"
+          placeholder="Write details here..."
+          required
+          class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 
+                 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-32 transition"
+        ></textarea>
+        <input
+          type="submit"
+          value="Submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 transition-colors 
+                 text-white py-2 rounded-lg font-semibold cursor-pointer"
+        />
+      </form>
+
+      <!-- File List -->
+      <% if (files.length > 0) { %>
+      <div class="mt-10">
+        <h2 class="text-xl font-semibold text-gray-300 border-b border-gray-700 pb-2 mb-6">
+          Saved Files
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <% files.forEach(function(val) { %>
+          <div class="bg-gray-800 p-4 rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-gray-700 flex flex-col justify-between">
+            <h2
+              class="text-lg font-semibold text-blue-400 truncate mb-4"
+              title="<%= val %>"
+            >
+              <%= val %>
+            </h2>
+            <div class="flex justify-between items-center space-x-4">
+              <a
+                href="/file/<%= val %>"
+                class="text-blue-500 hover:text-blue-400 transition text-sm"
+              >
+                Read more →
+              </a>
+              <a
+                href="/edit/<%= val %>"
+                class="text-blue-500 hover:text-blue-400 transition text-sm"
+              >
+                Edit file →
+              </a>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+      <% } else { %>
+      <p class="text-center mt-10 text-gray-400">No data found</p>
+      <% } %>
+    </div>
+  </body>
+</html>

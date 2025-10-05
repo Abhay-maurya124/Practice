@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Edit File</title>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-3xl bg-gray-800 rounded-2xl p-6 shadow-lg space-y-6">
+    <a href="/" class="text-blue-400 hover:text-blue-300 transition text-sm font-medium">
+      ← Back to Home
+    </a>
+    <form action="/edit" method="post" class="bg-gray-800 p-6 rounded-2xl shadow-lg space-y-4">
+      <h1 class="text-2xl font-bold text-center mb-4 text-blue-400">Edit File</h1>
+      <input
+        type="hidden"
+        name="previous"
+        value="<%= filename %>"
+      />
+      <input
+        type="text"
+        name="newName"
+        placeholder="New name (include .txt)"
+        required
+        class="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        value="<%= filename %>"
+      />
+      <input
+        type="submit"
+        value="Rename"
+        class="w-full bg-yellow-600 hover:bg-yellow-700 transition text-white py-2 rounded-lg font-semibold cursor-pointer"
+      />
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>View File</title>
+  </head>
+  <body
+    class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4"
+  >
+    <div
+      class="w-full max-w-3xl bg-gray-800 rounded-2xl p-6 shadow-lg space-y-6"
+    >
+      <a
+        href="/"
+        class="text-blue-400 hover:text-blue-300 transition text-sm font-medium"
+      >
+        ← Back to Home
+      </a>
+      <div class="flex items-center justify-center">
+        <h1 class="text-2xl font-bold text-gray-100 truncate text">
+         <span class="text-blue-300"><%=filename%></span>
+        </h1>
+      </div>
+      <div
+        class="bg-gray-700 p-4 rounded-lg border border-gray-600 overflow-auto max-h-[60vh]"
+      >
+            <p class="text-2xl font-bold bg-gray-900 text-center rounded-2xl p-1 m-3 w-1/4">content</p>
+
+        <p class="text-gray-200 text-xl leading-relaxed">
+          <%=filedata%>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
